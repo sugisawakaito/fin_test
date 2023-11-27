@@ -2,6 +2,7 @@ package main
 
 import (
         "github.com/labstack/echo"
+	"fin_test/handler"
         echoMiddleware "github.com/labstack/echo/middleware"
 )
 
@@ -14,6 +15,7 @@ func main() {
         e.Use(echoMiddleware.Recover())
 
         e.GET("/", func(c echo.Context) error {return HealthCheck(c) })
+        e.PUT("/login", func(c echo.Context) error {return handler.UserLogin(c) })
 
         e.Logger.Fatal(e.Start(":9000"))
 
