@@ -17,10 +17,11 @@ func main() {
         e.GET("/", func(c echo.Context) error {return HealthCheck(c) })
         e.PUT("/login", func(c echo.Context) error {return handler.UserLogin(c) })
 
+        e.PUT("/flag", func(c echo.Context) error {return handler.GetFlag(c) })
         e.Logger.Fatal(e.Start(":9000"))
 
 }
 func HealthCheck(c echo.Context) error {
         c.JSON(200, "health check is ok!")
-        return nil
+	return nil 
 }
