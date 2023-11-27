@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  echo:
+    container_name: echo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/go/src
+    ports:
+      - "9000:9000"
+    command: air
