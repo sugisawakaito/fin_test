@@ -17,6 +17,9 @@ func GetTickInfo(c echo.Context) error {
 
 	tickInfo, err := service.GetTickInfo(params.Code, params.Year, params.Month, params.Day, params.Hour)
 
+	if err != nil {
+		c.JSON(500, nil)
+	}
 
 	c.JSON(200, response.GetTickInfo(tickInfo))
 	return nil
